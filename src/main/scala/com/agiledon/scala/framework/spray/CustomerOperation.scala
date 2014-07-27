@@ -3,21 +3,11 @@ package com.agiledon.scala.framework.spray
 import java.util.Date
 import akka.actor.Actor
 import akka.event.Logging
-import com.agiledon.scala._
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.Success
-import com.agiledon.scala.framework.spray.OneCustomer
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.DeleteCustomer
-import com.agiledon.scala.framework.spray.ListCustomers
-import com.agiledon.scala.framework.spray.GetCustomer
-import com.agiledon.scala.framework.spray.UpdateCustomer
-import com.agiledon.scala.framework.spray.CreateCustomer
 
 trait CustomerOperations {
 
   def getById(id: Long) = {
-    OneCustomer(new Customer(id, new Date(1000), "item1"))
+    OneCustomer(Customer(id, new Date(1000), "item1"))
   }
 
   def all() =  {

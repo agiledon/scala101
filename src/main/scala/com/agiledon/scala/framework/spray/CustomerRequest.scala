@@ -9,20 +9,6 @@ import spray.http.StatusCodes._
 import akka.actor.SupervisorStrategy.Stop
 import spray.routing.RequestContext
 import akka.actor.OneForOneStrategy
-import com.agiledon.scala._
-import com.agiledon.scala.framework.spray.Created
-import com.agiledon.scala.framework.spray.OneCustomer
-import spray.routing.RequestContext
-import com.agiledon.scala.framework.spray.Error
-import com.agiledon.scala.framework.spray.ListCustomers
-import akka.actor.OneForOneStrategy
-import com.agiledon.scala.framework.spray.Created
-import com.agiledon.scala.framework.spray.Success
-import com.agiledon.scala.framework.spray.OneCustomer
-import spray.routing.RequestContext
-import com.agiledon.scala.framework.spray.Error
-import com.agiledon.scala.framework.spray.ListCustomers
-import akka.actor.OneForOneStrategy
 
 trait CustomerRequest extends Actor with Json4sSupport {
   def requestContext: RequestContext

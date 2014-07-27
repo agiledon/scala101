@@ -4,23 +4,6 @@ import akka.actor.{Props, Actor}
 import spray.routing.{Route, HttpService}
 import spray.httpx.Json4sSupport
 import org.json4s.DefaultFormats
-import com.agiledon.scala._
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.DeleteCustomer
-import com.agiledon.scala.framework.spray.GetCustomer
-import com.agiledon.scala.framework.spray.UpdateCustomer
-import com.agiledon.scala.framework.spray.CreateCustomer
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.DeleteCustomer
-import com.agiledon.scala.framework.spray.GetCustomer
-import com.agiledon.scala.framework.spray.UpdateCustomer
-import com.agiledon.scala.framework.spray.Customer
-import com.agiledon.scala.framework.spray.DeleteCustomer
-import com.agiledon.scala.framework.spray.GetCustomer
-import com.agiledon.scala.framework.spray.UpdateCustomer
-import com.agiledon.scala.framework.spray.CreateCustomer
-
 
 class CustomerServiceActor extends Actor with CustomerService with CustomerRequestCreator {
   implicit def actorRefFactory = context
