@@ -5,7 +5,7 @@ import org.scalatest.{ShouldMatchers, FlatSpec}
 class OptionSpec extends FlatSpec with ShouldMatchers{
   "get" should "get real value" in {
     val s = Some("abc")
-    s.get() should be("abc")
+    s.get should be("abc")
   }
 
   "sequence" should "sequence all Some instances" in {
@@ -36,6 +36,8 @@ class OptionSpec extends FlatSpec with ShouldMatchers{
   "sequence1" should "return None given Nil" in {
     val s = List()
     Option.sequence1(s) should be(Some(Nil))
+
+    scala.Option
   }
 
 }

@@ -12,9 +12,7 @@ sealed trait Option[+A] {
     case Some(x) => x
   }
 
-  def get():A = this match {
-    case Some(x) => x
-  }
+  def get:A
 
   def flatMap[B](f: A => Option[B]): Option[B] = map(f) getOrElse None
 
@@ -33,8 +31,13 @@ sealed trait Option[+A] {
   }
 }
 
-case class Some[+A](element: A) extends Option[A]
-case object None extends Option[Nothing]
+case class Some[+A](x: A) extends Option[A]{
+  def get = x
+}
+
+case object None extends Option[Nothing]{
+  def get = throw new NoSuchElementException("None.get")
+}
 
 object Option {
   def sequence[A](a: List[Option[A]]): Option[List[A]] = {
