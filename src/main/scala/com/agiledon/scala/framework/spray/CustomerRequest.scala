@@ -9,6 +9,7 @@ import spray.http.StatusCodes._
 import akka.actor.SupervisorStrategy.Stop
 import spray.routing.RequestContext
 import akka.actor.OneForOneStrategy
+import com.agiledon.scala.framework.spray.CustomerRequest.WithProps
 
 trait CustomerRequest extends Actor with Json4sSupport {
   def requestContext: RequestContext

@@ -19,7 +19,9 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
     "org.scalikejdbc"     %% "scalikejdbc"    % scalikeV,
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
-    "org.specs2"          %%  "specs2"        % "2.2.3" % "test"
+    "org.specs2"          %%  "specs2"        % "2.2.3" % "test",
+    "org.scalatest"      %% "scalatest"           % "2.1.0"        % "test",
+    "com.novocode"        % "junit-interface"     % "0.7"          % "test->default"
   )
 }
 
