@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.StreamingContext._
 
-object LocalWordCountByWindow extends App {
+object WordCountAndSave extends App {
   val sparkConf = new SparkConf().setAppName("HdfsWordCount")
   val ssc = new StreamingContext(sparkConf, Seconds(2))
 
@@ -12,7 +12,9 @@ object LocalWordCountByWindow extends App {
   val wordDstream = lines.flatMap(_.split(" ")).map(x => (x, 1))
   val wordCount = wordDstream.reduceByKeyAndWindow((a: Int, b: Int) => a + b, Seconds(10), Seconds(8))
   wordCount.print()
+  wordCount.saveAsTextFiles("sample", "txt")
 
   ssc.start()
   ssc.awaitTermination()
+
 }
