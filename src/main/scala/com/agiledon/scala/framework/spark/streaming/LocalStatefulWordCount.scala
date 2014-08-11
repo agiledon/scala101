@@ -23,8 +23,8 @@ object LocalStatefulWordCount extends App {
 
   val lines = ssc.textFileStream("/Users/twer/workspace/scala101/data")   //local directory
   val wordDstream = lines.flatMap(_.split(" ")).map(x => (x, 1))
-  val statefuleWordCount = wordDstream.updateStateByKey[Int](updateFunc)
-  statefuleWordCount.print()
+  val statefulWordCount = wordDstream.updateStateByKey[Int](updateFunc)
+  statefulWordCount.print()
 
   ssc.start()
   ssc.awaitTermination()
