@@ -10,7 +10,14 @@ import org.apache.spark.SparkConf
 object HdfsWordCount extends App {
   val sparkConf = new SparkConf().setAppName("HdfsWordCount")
 //  val ssc = new StreamingContext("local[2]", "HdfsWordCount", Seconds(5))
-  val ssc = new StreamingContext(sparkConf, Seconds(5))
+  val ssc = new StreamingContext(sparkConf, Seconds(2))
+
+  val updateFunc = (values: Seq[Int], state: Option[Int]) => {
+    val currentCount = values.foldLeft(0)(_ + _)
+    val previousCount = state.getOrElse(0)
+    Some(currentCount + previousCount)
+  }
+  
   val lines = ssc.textFileStream("/Users/twer/workspace/scala101/data")   //local directory
   val wordCount = lines.flatMap(_.split(" ")).map(x => (x, 1)).reduceByKey(_ + _)
 

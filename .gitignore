@@ -4,3 +4,5 @@ project/project
 *.iml
 target/
 .DS_Store
+data/
+data0/
