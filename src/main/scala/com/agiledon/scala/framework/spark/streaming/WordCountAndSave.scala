@@ -5,7 +5,9 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.StreamingContext._
 
 object WordCountAndSave extends App {
-  val sparkConf = new SparkConf().setAppName("HdfsWordCount")
+  val sparkConf = new SparkConf()
+    .setAppName("HdfsWordCount")
+    .set("spark.default.parallelism", "4")
   val ssc = new StreamingContext(sparkConf, Seconds(2))
 
   val lines = ssc.textFileStream("/Users/twer/workspace/scala101/data")   //local directory
