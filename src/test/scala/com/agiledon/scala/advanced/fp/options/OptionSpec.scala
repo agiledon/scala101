@@ -1,8 +1,8 @@
 package com.agiledon.scala.advanced.fp.options
 
-import org.scalatest.{ShouldMatchers, FlatSpec}
+import com.agiledon.scala.UnitSpec
 
-class OptionSpec extends FlatSpec with ShouldMatchers{
+class OptionSpec extends UnitSpec {
   "get" should "get real value" in {
     val s = Some("abc")
     s.get should be("abc")
